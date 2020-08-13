@@ -9,14 +9,12 @@ class TabList {
 
             this.openTab(index);
         });
-
     }
 
     openTab(index) {
         this.tabs.querySelector('.active').classList.remove('active');
         this.tabs.querySelector(`.content--${index}`).classList.add('active');
     }
-
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -24,8 +22,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const tabs = document.querySelector('.tab-content');
 
     const tabList = new TabList(buttonsContainer, tabs);
-
 })
+
 function toggleItem(elem) {
     for (var i = 0; i < elem.length; i++) {
         elem[i].addEventListener("click", function(e) {
@@ -41,6 +39,7 @@ function toggleItem(elem) {
             }
             e.preventDefault();
         });
-    };
+    }
 }
+
 toggleItem(document.querySelectorAll('.tab'));
