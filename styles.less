@@ -29,6 +29,23 @@ body, html {
   display: inline;
 }
 
+.mobile-menu, .fa-bars {
+  display: none!important;
+}
+
+#mobilemenu li, .options li {
+  list-style: none;
+}
+
+#mobilemenu a {
+  color: @text-for-dark-bg-color;
+  font-family: @text-font;
+  font-size: @article-size;
+  text-align: right;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
 .header {
   width: @max-width;
 }
@@ -52,10 +69,9 @@ body, html {
 
 .navbar {
   background-color: @background-color;
-
 }
 
-.navbar ul {
+.navbar-nav {
   padding: 10px 0;
 }
 
@@ -99,9 +115,7 @@ h1 {
 // Offer Section
 
 .offer  {
-  background: url("images/header.png") no-repeat;
-  display: flex;
-  position: relative;
+  background: url("images/header.png") no-repeat center;
 }
 
 .offer .wrap h3 {
@@ -590,10 +604,14 @@ h1 {
 }
 
 .professional {
-  margin-top: -30px;
+  margin: -12px;
 }
 
-.options h5 {
+.option-title, .price, .option-description {
+  margin: 0 0 1px;
+}
+
+.option-title {
   font-family: @text-font;
   font-size: 20px;
   font-weight: bold;
@@ -611,7 +629,6 @@ h1 {
   color: @text-for-dark-bg-color;
   background-color: @background-color;
   padding: 0 130px;
-  margin-top: -33px;
 }
 
 .options span {
@@ -629,13 +646,11 @@ h1 {
   color: @socials-color;
   background-color: @background-color;
   padding: 15px 70px;
-  margin-top: -69px;
 }
 
 .options .divider {
   background-color: @elements-color;
   height:6px;
-  margin-top: -14px;
 }
 
 .options .popular {
@@ -647,10 +662,9 @@ h1 {
   color: @text-for-dark-bg-color;
   background-color: @elements-color;
   padding: 10px 70px;
-  margin-top: -14px;
 }
 
-.options .description {
+.options .option-description {
   font-family: @text-font;
   font-size: @article-size;
   text-transform: uppercase;
@@ -658,7 +672,6 @@ h1 {
   color: @article-color;
   background-color: @default-color;
   padding: 15px 70px;
-  margin-top: -13px;
 }
 
 //Testimonials Section
@@ -790,7 +803,7 @@ h1 {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   margin-top: -320px;
 }
 
@@ -951,13 +964,17 @@ h1 {
   padding: 5px 0;
 }
 
-@media screen and  (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   @max-width: 1200px;
   @width: 1000px;
 
   body, html {
     width: @max-width;
     margin: 0 auto;
+  }
+
+  .mobile-menu, .fa-bars {
+    display: none;
   }
 
   .header {
@@ -1017,7 +1034,7 @@ h1 {
   }
 
   .picture-section img {
-    margin: 90px 80px 0;
+    margin: 90px 80px 100px;
   }
 
   .why-awesome .list .fa-lightbulb, .why-awesome .list .fa-bolt, .why-awesome .list .fa-keyboard {
@@ -1026,10 +1043,6 @@ h1 {
 
   .why-awesome .list p {
     width: 300px;
-  }
-
-  .options .price {
-    padding: 0;
   }
 
   .options .description {
@@ -1053,18 +1066,22 @@ h1 {
     width: 200px;
   }
 
-  .custom img {
-    display: block;
+  .custom .wrapper {
+    position: relative;
+    top: -55px;
+  }
 
+  .custom img {
+    display: none;
   }
 
   .parallax {
-    display: none;
+    display: block;
   }
 
   .custom .wrapper {
     position: relative;
-    top: -355px;
+    top: -55px;
   }
 
   .custom button {
@@ -1101,8 +1118,42 @@ h1 {
     width: @max-width;
   }
 
+  .navbar-nav {
+    display: none;
+  }
+
   .wrap {
     width: @width;
+  }
+
+  .fa-bars {
+    color: @default-color;
+    font-size: 30px;
+    display: block!important;
+    margin: 20px;
+  }
+
+  .fa-times {
+    color: @default-color;
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  #mobilemenu {
+    background-color: @background-color;
+    position: absolute;
+    right: -65px;
+    top: 55px;
+    padding: 0;
+    z-index: 7;
+  }
+
+  #mobilemenu li {
+    padding: 20px 60px;
+  }
+
+  #mobilemenu li:hover {
+    background-color: @button-color;
   }
 
   .offer .wrap, .sub-list .wrap, .picture-section .wrap, .footer .wrap {
@@ -1232,7 +1283,7 @@ h1 {
     @max-width: 768px;
     @width: 700px;
 
-  body, html {
+  body, html, main {
     width: @max-width;
     margin: 0 auto;
   }
@@ -1241,7 +1292,7 @@ h1 {
     width: @max-width;
   }
 
-  .wrap {
+  .wrap, .wrapper {
     width: @width;
   }
 
@@ -1253,35 +1304,12 @@ h1 {
     width: 150px;
   }
 
-  .offer .wrap {
-    flex-direction: column;
-  }
-
-  .offer .wrap h3 {
-    top: 10px;
-    font-size: 18px;
-    width: 260px;
-  }
-
-  .offer .wrap hr {
-    top: 10px;
-  }
-
-  .offer .wrap p {
-    top: 10px;
-    font-size: @article-size;
-    width: 260px;
-  }
-
-  .offer .wrap .download {
-    top: 20px;
-    font-size: @article-size;
-    padding: 10px 20px;
+  .offer-title {
+    display: none;
   }
 
   .offer-form {
-    margin: 20px 0 0 130px;
-    max-width: 290px;
+    max-width: 400px;
     height: 260px;
   }
 
@@ -1306,6 +1334,10 @@ h1 {
     padding: 15px;
   }
 
+  .socials li {
+    padding: 0 10px;
+  }
+
   .socials i {
     font-size: 30px;
     margin: 10px 5px 0;
@@ -1324,17 +1356,12 @@ h1 {
     display: none;
   }
 
-  .sub-list {
-    height: inherit;
-  }
-
   .sub-list .wrap {
     display: block;
   }
 
   .sub-list img {
-    margin: 40px 120px 0;
-    width: 450px;
+    margin: 50px 120px 0;
   }
 
   .sub-list h5 {
@@ -1389,15 +1416,12 @@ h1 {
   }
 
   .picture-section img {
-    margin: 10px 130px 0;
-  }
-
-  .why-awesome {
-    padding-bottom: 30px;
+    margin: 30px 130px;
   }
 
   .why-awesome .list {
     display: block;
+    padding-bottom: 60px;
   }
 
   .why-awesome .list div {
@@ -1414,18 +1438,21 @@ h1 {
 
   .why-awesome .list p {
     width: 550px;
+    padding-bottom: 10px;
   }
 
-  .options .payment, .options h5 {
-    padding: 15px 10px;
+  .options {
+    flex-direction: column;
+    padding: 40px 0 70px;
   }
 
-  .options .popular {
-    padding: 10px;
+  .options ul {
+    width: 70%;
+    padding: 0 100px;
   }
 
-  .options .description {
-    padding: 15px 0;
+  .professional {
+    margin: 0;
   }
 
   .testimonials .container, .testimonials .carousel {
@@ -1450,12 +1477,11 @@ h1 {
   }
 
   .custom img {
-    display: block;
-    object-fit: cover;
+    display: none;
   }
 
   .parallax {
-    display: none;
+    display: block;
   }
 
   .custom button {
