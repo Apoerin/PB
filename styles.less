@@ -686,6 +686,7 @@ h1 {
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  display: flex;
 }
 
 .buttons {
@@ -703,25 +704,24 @@ h1 {
 }
 
 .buttons i {
-  margin-bottom: 200px;
   color: @elements-color;
+  position: relative;
+  bottom: 60px;
 }
 
 .carousel  {
-  margin: 0;
-  padding: 0;
+  padding: 0 0 0 50px;
   list-style: none;
   width: 1050px;
   display: flex;
   position: absolute;
-  left: 0;
   transition: all 1s ease;
 }
 
 .card {
   list-style: none;
   display: inline-block;
-  padding: 0 60px;
+  padding: 0 45px;
 }
 
 .bubble {
@@ -1058,12 +1058,12 @@ h1 {
   }
 
   .bubble {
-    width: 220px;
+    width: 270px;
     height: 150px;
   }
 
   .bubble p {
-    width: 200px;
+    width: 210px;
   }
 
   .custom .wrapper {
@@ -1249,6 +1249,20 @@ h1 {
 
    .why-awesome .list i {
      margin: 50px 120px 0;
+   }
+
+   .card {
+     padding: 0 55px;
+     margin: 0;
+   }
+
+   .bubble {
+     width: 290px;
+   }
+
+   .bubble p {
+     font-size: 16px;
+     padding: 10px 15px;
    }
 
    .custom img {
