@@ -5,8 +5,8 @@ let list = carousel.querySelector('ul');
 let listItems = carousel.querySelectorAll('li');
 
 let position = 0;
-let width = 350;
-let count = 2;
+let width = 400;
+let count = 1;
 
 carousel.querySelector('.previous').onclick = function() {
     position = Math.min(position + width * count, 0);
